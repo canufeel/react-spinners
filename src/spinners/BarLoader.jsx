@@ -41,7 +41,7 @@ export class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper()}>
+      <div className={`${this.wrapper()} ${this.props.className}`}>
         <div className={this.style(1)} />
         <div className={this.style(2)} />
       </div> : null;
@@ -52,14 +52,16 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  className: PropTypes.string,
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   width: 100,
-  height: 4
+  height: 4,
+  className: ''
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);
